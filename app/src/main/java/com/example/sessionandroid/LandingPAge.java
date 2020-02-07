@@ -38,12 +38,17 @@ public class LandingPAge extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
+         if(!session.isLoggin()){
+             startActivity(new Intent(LandingPAge.this, MainActivity.class));
+         }
         Log.v(TAG, "onstart");
     }
     @Override
     protected void onResume() {
         super.onResume();
+        if(!session.isLoggin()) {
+            startActivity(new Intent(LandingPAge.this, MainActivity.class));
+        }
         Log.d(TAG,"onResume invoked");
     }
 

@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                   session.createSession(uname, pwd);
                   if(session.isLoggin()){
                      onStart();
+                     MainActivity.this.finish();
                   }
 
                 }
@@ -94,7 +95,16 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG,"onRestart invoked");
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
 
+
+    }
 
 
 
